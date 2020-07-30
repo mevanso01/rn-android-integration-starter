@@ -20,6 +20,7 @@ import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.twilio.video.quickstart.BuildConfig;
 import com.twilio.video.quickstart.R;
+import com.twilio.video.quickstart.custommodules.CustomToastPackage;
 
 public class RNActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
     private final int OVERLAY_PERMISSION_REQ_CODE = 1;  // Choose any value
@@ -46,6 +47,7 @@ public class RNActivity extends AppCompatActivity implements DefaultHardwareBack
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
+                .addPackage(new CustomToastPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();

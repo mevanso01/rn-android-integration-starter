@@ -14,6 +14,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
+
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.ActivityCompat;
@@ -25,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -175,6 +178,15 @@ public class VideoActivity extends AppCompatActivity {
         switchCameraActionFab = findViewById(R.id.switch_camera_action_fab);
         localVideoActionFab = findViewById(R.id.local_video_action_fab);
         muteActionFab = findViewById(R.id.mute_action_fab);
+
+        Button btnButton = findViewById(R.id.button);
+        btnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VideoActivity.this, RNActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /*
          * Get shared preferences to read settings
